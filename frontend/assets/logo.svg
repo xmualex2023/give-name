@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景圆形 -->
+    <circle cx="60" cy="60" r="58" fill="white" stroke="#E60012" stroke-width="4"/>
+    
+    <!-- 印章外圈装饰 -->
+    <path d="M60 10A50 50 0 1 0 60 110A50 50 0 1 0 60 10" 
+          stroke="#E60012" 
+          stroke-width="2" 
+          stroke-dasharray="4 4" 
+          fill="none"/>
+    
+    <!-- 中文"名"字 -->
+    <path d="M45 40H75M60 40V80M45 60H75" 
+          stroke="#E60012" 
+          stroke-width="6" 
+          stroke-linecap="round"/>
+    
+    <!-- 英文字母 N -->
+    <path d="M40 75L50 45L60 75" 
+          stroke="#E60012" 
+          stroke-width="4" 
+          stroke-linecap="round" 
+          stroke-linejoin="round"
+          fill="none"/>
+    
+    <!-- 装饰点 -->
+    <circle cx="60" cy="30" r="3" fill="#E60012"/>
+    <circle cx="60" cy="90" r="3" fill="#E60012"/>
+    <circle cx="30" cy="60" r="3" fill="#E60012"/>
+    <circle cx="90" cy="60" r="3" fill="#E60012"/>
+</svg> 

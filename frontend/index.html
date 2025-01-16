@@ -1,107 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chinese Name Generator | 中文姓名生成器</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Chinese Name Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.5.0/remixicon.min.css">
 </head>
 <body>
-    <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-content">
             <div class="nav-left">
-                <img src="assets/logo.svg" alt="Logo" class="logo">
-                <span class="brand-name">Chinese Name Generator</span>
+                <img src="assets/logo.svg" alt="Name Generator Logo" class="logo">
+                <span class="brand-name" data-i18n="brandName">Name Generator</span>
             </div>
-            <div class="language-switch">
-                <button class="lang-btn active" data-lang="en">EN</button>
-                <button class="lang-btn" data-lang="zh">中文</button>
+            <div class="nav-right">
+                <div class="language-switch">
+                    <button class="lang-btn active" data-lang="en">EN</button>
+                    <button class="lang-btn" data-lang="zh">中文</button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main class="container">
-        <!-- 标题区域 -->
-        <header class="header">
-            <h1>Discover Your Perfect Chinese Name</h1>
-            <p class="subtitle">Experience the beauty of Chinese culture through a meaningful name that resonates with your identity</p>
-        </header>
-
-        <!-- 输入区域 -->
-        <section class="input-section">
-            <div class="search-box">
-                <input type="text" id="englishName" placeholder="Enter your full name (e.g. Barack Hussein Obama)">
-                <button id="generateBtn">Generate Names</button>
-            </div>
-        </section>
-
-        <!-- 结果展示区 -->
-        <section class="results-section hidden">
-            <div class="name-options">
-                <!-- 名字选项 -->
-                <div class="name-option">
-                    <div class="option-header">
-                        <span class="option-number">Option 1:</span>
-                        <h2 class="chinese-name">巴小奥</h2>
-                        <p class="pinyin">bā xiǎo ào</p>
+    <main class="main-content">
+        <div class="hero-section">
+            <h1 class="main-title" data-i18n="title">Discover Your Perfect Chinese Name</h1>
+            <p class="subtitle" data-i18n="subtitle">Experience the beauty of Chinese culture through a meaningful name that resonates with your identity</p>
+            
+            <div class="input-section">
+                <form id="nameForm" class="name-form">
+                    <div class="input-group">
+                        <input type="text" 
+                               id="nameInput" 
+                               placeholder="Enter your full name (e.g. Barack Hussein Obama)"
+                               data-i18n-placeholder="namePlaceholder"
+                               required
+                               autocomplete="off"
+                               spellcheck="false">
+                        <button type="submit" class="generate-btn" data-i18n="generateBtn">Generate Names</button>
                     </div>
-                    
-                    <div class="option-details">
-                        <div class="detail-section">
-                            <h3>Meaning</h3>
-                            <p>巴小奥，听起来就像把小傲，既保留了姓氏的音，又用小傲来暗示其个性中的骄傲与自信。</p>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h3>Cultural Explanation</h3>
-                            <p>这个名字以巴为姓，取小奥寓意巴马的傲骨和自信。'奥'也有'傲'的谐音，暗含了其独特的个性魅力。</p>
-                        </div>
-                        
-                        <div class="detail-section">
-                            <h3>English Explanation</h3>
-                            <p>The name 'Ba Xiaoa' plays on the sound of Obama's surname, with 'Xiaoa' suggesting pride and confidence. The play on words 'a' sounds like '傲' (proud), hinting at the character's unique charm.</p>
-                        </div>
-                    </div>
+                </form>
+
+                <div id="loading" class="loading-indicator" style="display: none;">
+                    <div class="spinner"></div>
+                    <p data-i18n="loading">Generating your perfect Chinese name...</p>
                 </div>
+
+                <div id="error" class="error-message" style="display: none;"></div>
             </div>
+        </div>
+
+        <section id="results" class="results-section" style="display: none;">
+            <!-- 结果将通过 JavaScript 动态插入 -->
         </section>
     </main>
 
-    <!-- 页脚 -->
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>About Us</h4>
-                <p>We help bridge cultural gaps by creating meaningful Chinese names that respect both tradition and individuality.</p>
+                <h3 data-i18n="footerAbout">About Us</h3>
+                <p class="footer-description" data-i18n="footerDescription">
+                    We help bridge cultural gaps by creating meaningful Chinese names that respect both tradition and individuality.
+                </p>
             </div>
+
             <div class="footer-section">
-                <h4>Contact</h4>
-                <p>Email: contact@chinesename.com</p>
-                <p>Follow us on social media</p>
+                <h3 data-i18n="footerContact">Contact</h3>
+                <p class="footer-contact">Email: contact@chinesename.com</p>
                 <div class="social-links">
-                    <a href="#" class="social-link">Twitter</a>
-                    <a href="#" class="social-link">Facebook</a>
-                    <a href="#" class="social-link">Instagram</a>
+                    <a href="https://twitter.com/your-handle" target="_blank" rel="noopener noreferrer">
+                        <i class="ri-twitter-fill"></i>
+                    </a>
+                    <a href="https://facebook.com/your-page" target="_blank" rel="noopener noreferrer">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                    <a href="https://instagram.com/your-account" target="_blank" rel="noopener noreferrer">
+                        <i class="ri-instagram-fill"></i>
+                    </a>
                 </div>
             </div>
+
             <div class="footer-section">
-                <h4>Resources</h4>
-                <ul class="footer-links">
-                    <li><a href="#">How it works</a></li>
-                    <li><a href="#">Name meanings</a></li>
-                    <li><a href="#">Chinese culture</a></li>
-                    <li><a href="#">FAQ</a></li>
-                </ul>
+                <h3 data-i18n="footerResources">Resources</h3>
+                <div class="footer-links">
+                    <a href="#" data-i18n="footerHowItWorks">How it works</a>
+                    <a href="#" data-i18n="footerNameMeanings">Name meanings</a>
+                    <a href="#" data-i18n="footerChineseCulture">Chinese culture</a>
+                    <a href="#" data-i18n="footerFAQ">FAQ</a>
+                </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Chinese Name Generator. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html> 

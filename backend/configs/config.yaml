@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  timeout: 30s
+
+gemini:
+  api_key: AIzaSyA3_z2C2AVBEUXYs6Fn6vTnspwf_dd2h8E
+  model: gemini-pro
+  timeout: 20s
+  use_proxy: true
+  direct_mode: false
+
+proxy:
+  enabled: true
+  http_proxy: "http://127.0.0.1:8118"
+  https_proxy: "http://127.0.0.1:8118"
+
+cors:
+  allowed_origins: ["http://localhost:3000"]
+  allowed_methods: ["GET", "POST", "OPTIONS"] 
