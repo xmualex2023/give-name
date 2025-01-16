@@ -13,7 +13,8 @@ import (
 
 func main() {
 	// 初始化 Gemini 服务
-	geminiService, err := ai.NewGeminiService("AIzaSyA3_z2C2AVBEUXYs6Fn6vTnspwf_dd2h8E")
+	fmt.Println("Initializing Gemini service")
+	geminiService, err := ai.NewGeminiService("xx")
 	if err != nil {
 		log.Fatalf("Failed to initialize Gemini service: %v", err)
 	}
@@ -38,7 +39,8 @@ func main() {
 	setupRoutes(r, nameHandler)
 
 	// 启动服务器
-	log.Fatal(r.Run(":8000"))
+	fmt.Println("Starting server on port 8000")
+	log.Fatal(r.Run("localhost:8000"))
 }
 
 func setupRoutes(r *gin.Engine, nameHandler *handler.NameHandler) {
